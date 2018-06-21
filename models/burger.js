@@ -12,8 +12,9 @@ var burger = {
       cb(res);
     });
   },
-  update: function (id, burger, devoured, cb) {
-    orm.update(id, burger, devoured, function (res) {
+  update: function (id, devoured, cb) {
+    var devouredInt = (devoured === "true") ? 1 : 0;
+    orm.update(id, devouredInt, function (res) {
       cb(res);
     });
   }
