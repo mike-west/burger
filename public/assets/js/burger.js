@@ -29,6 +29,7 @@ $(function() {
       devoured: $("[name=devoured]:checked").val().trim()
     };
 
+    console.log(JSON.stringify(newBurger));
     // Send the POST request.
     $.ajax("/api", {
       type: "POST",
