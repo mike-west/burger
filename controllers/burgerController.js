@@ -6,20 +6,18 @@ var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
   burger.all(function(data) {
-    // data is an [] of burger objects
-    console.log("From get '/' " + JSON.stringify(data));
     res.render("index", data);
   });
 });
 
-router.post("/api/burger", function(req, res) {
-  burger.create(req.body.name, req.body.devoured, function(result) {
+router.post("/api", function(req, res) {
+  burger.create(req.body.name, String(req.body.devoured), function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
-router.put("/api/burger/:id", function(req, res) {
+router.put("/api/burger/id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);

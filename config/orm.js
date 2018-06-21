@@ -1,7 +1,7 @@
 var connection = require("../config/connection.js");
 
 var orm = {
-    insertString: "INSERT INTO burgers (burger) VALUES (?)",
+    insertString: "INSERT INTO burgers (burger, devoured) VALUES (?, ?)",
     updateString: "UPDATE burgers SET burger = ?, devoured = ? where id = ?",
 
     selectAll: function (cb) {
@@ -12,8 +12,8 @@ var orm = {
             cb({data});
         });
     },
-    insertOne: function (burger, cb) {
-        connection.query(insertString, burger, function (err, data) {
+    create: function (burger, devoured, cb) {
+        connection.query(this.insertString, [burger, devoured], function (err, data) {
             if (err) {
                 throw err;
             }
@@ -21,7 +21,7 @@ var orm = {
         });
     },
     updateOne: function (id, burger, devoured, cb) {
-        connection.query(updateString, burger, devoured, id, function (err, data) {
+        connection.query(this.updateString, [burger, devoured, id], function (err, data) {
             if (err) {
                 throw err;
             }
