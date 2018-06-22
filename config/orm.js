@@ -21,8 +21,6 @@ var orm = {
         });
     },
     update: function (id, devoured, cb) {
-        console.log("befoe updating");
-        console.log(id, devoured);
         connection.query(this.updateString, [devoured, id], function (err, data) {
             if (err) {
                 throw err;

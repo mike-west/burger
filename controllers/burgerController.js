@@ -19,7 +19,6 @@ router.post("/api", function (req, res) {
 
 router.put("/api/:id", function (req, res) {
     // console.log(req);
-    console.log(req.body);
     burger.update(req.body["id"], String(req.body["divoured"]),
         function (result) {
             if (result.changedRows === 0) {

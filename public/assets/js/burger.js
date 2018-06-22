@@ -1,22 +1,20 @@
 $(function() {
   $(".change-status").on("click", function(event) {
     var id = $(this).data("id");
-    var thisStatus = $(this).data("data-devoured");
+    var thisStatus = $(this).data("devoured");
     var newStatus = (thisStatus === true) ? false : true;
-    console.log("newStatus: "  + newStatus);
 
     var newDivouredState = {
       id: id,
       divoured: newStatus
     };
-    console.log(newDivouredState);
+
     // Send the PUT request.
     $.ajax("/api/" + id, {
       type: "PUT",
       data: newDivouredState
     }).then(
       function() {
-        console.log("changed divoured to", newStatus);
         // Reload the page to get the updated list
         location.reload();
       }
