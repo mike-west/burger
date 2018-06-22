@@ -1,12 +1,12 @@
-<h1>Eat-Da-Burder!</h1>
+<h1>Eat-Da-Burger!</h1>
 
 <h2>I devoured these!</h2>
 
 <ul>
   {{#each data}}
-    {{#unless devoured}}
+    {{#if devoured}}
       {{> burger/burger-block devoured=true}}
-    {{/unless}}
+    {{/if}}
   {{/each}}
 </ul>
 
@@ -14,9 +14,9 @@
 
 <ul>
   {{#each data}}
-    {{#if devoured}}
+    {{#unless devoured}}
       {{> burger/burger-block devoured=false}}
-    {{/if}}
+    {{/unless}}
   {{/each}}
 </ul>
 
