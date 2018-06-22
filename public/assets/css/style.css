@@ -1,9 +1,19 @@
 .h2 {
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
 .change-status {
     float: left;
     margin-right: 10px;
+}
+
+img {
+    margin-top: 120px;
+    transform: rotate(90deg);
+    float: right;
+}
+
+li {
+    margin-bottom: 10px;
 }

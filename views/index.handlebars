@@ -1,19 +1,21 @@
 <div class="container">
   <h1 class="heading h1">Eat-Da-Burger!</h1>
 
+  <img src="/assets/img/innout_cover.jpg" alt="In N Out 10X10">
+
   <h2 class="heading h2">I devoured these!</h2>
 
   <ul class="list-group">
     {{#each data}} {{#if devoured}} {{> burger/burger-block devoured=true}} {{/if}} {{/each}}
   </ul>
-
+  <br>
   <h2 class="heading h2">Still to eat</h2>
 
   <ul class="list-group">
     {{#each data}} {{#unless devoured}} {{> burger/burger-block devoured=false}} {{/unless}} {{/each}}
   </ul>
-  <br>
-  <h2>Add a Burger</h2>
+
+  <h2 class="heading h2">Add a Burger</h2>
   <form class="create-form">
 
     <div class="form-group">
@@ -24,11 +26,11 @@
     <div class="form-group">
       <label for="devoured">Devoured?</label>
       <br>
-      <input type="radio" name="devoured" value="1" checked> Devoured!
+      <input class="radio" type="radio" name="devoured" value="1" checked> Devoured!
       <br>
-      <input type="radio" name="devoured" value="0"> Haven't tried yet
+      <input class="radio" type="radio" name="devoured" value="0"> Haven't tried yet
     </div>
 
-    <button type="submit">Add Burger</button>
+    <button class="btn-primary" type="submit">Add Burger</button>
   </form>
 </div>
